@@ -1,5 +1,8 @@
 import cv2
+import pytesseract
 from ultralytics import YOLO
+
+pytesseract.pytesseract.tesseract_cmd=r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def start_detection():
     cap = cv2.VideoCapture(0)
@@ -37,11 +40,18 @@ def start_detection():
                         frame,"ALERT: Suspicious object detected..!",(50,50),
                         cv2.FONT_HERSHEY_COMPLEX,1,(0,0,255),2
                         )
+                    
+        gray=cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        text=pytesseract.image_to_string(gray)
+       
+
+        if text.strip()!="":
+            cv2.putText(frame, f'Text Detected: {text.strip()[:30]}', (10,450), cv2.FONT_HERSHEY_COMPLEX,7.5,(255,0,0),1)
        
         cv2.imshow('Multi-Modal Surveillance', frame)
 
        
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(1) == ord('q'):
             break
 
     cap.release()
