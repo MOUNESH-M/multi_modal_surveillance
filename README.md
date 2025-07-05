@@ -25,8 +25,8 @@ multi-modal-surveillance/
 ├── app.py # Main application file
 ├── requirements.txt # List of Python dependencies
 ├── README.md # Project documentation
-├── yolov8n.pt # Pre-trained YOLOv8 nano model (if used locally)
-└── Other support files # (if any additional files used)
+├── yolov8n.pt # Pre-trained YOLOv8 nano model 
+└── Other support files 
 ```
 
 ---
@@ -45,7 +45,7 @@ multi-modal-surveillance/
 - Real-time voice alerts for suspicious objects.
 - Multi-modal interaction: Camera + Text + Audio.
 - Simple interface (press `Q` to quit)
-- 
+
 ---
 
 ## Project Highlights
@@ -57,3 +57,4 @@ multi-modal-surveillance/
 
 by
 MOUNESH M
+---
